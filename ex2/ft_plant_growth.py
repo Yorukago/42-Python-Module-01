@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_plant_growth.py                                 :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jzorreta <jzorreta@student.42lisboa.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/08 15:34:53 by jzorreta          #+#    #+#              #
-#    Updated: 2025/12/08 15:39:46 by jzorreta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 class Plant:
     def __init__(self, name, height_cm, age_days):
         self.name = name
@@ -45,10 +33,12 @@ def main():
 
     print("\nSimulating 7 days of growth...\n")
 
-    for day in range(7):
+    day = 1
+    while day < 7:
         for plant in garden_plants:
             plant.grow()
             plant.age()
+        day += 1
 
     print("~ After 1 Week ~\n")
     for plant in garden_plants:

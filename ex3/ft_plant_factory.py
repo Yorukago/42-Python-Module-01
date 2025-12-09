@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_plant_factory.py                                :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jzorreta <jzorreta@student.42lisboa.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/08 15:46:47 by jzorreta          #+#    #+#              #
-#    Updated: 2025/12/08 15:50:26 by jzorreta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 class Plant:
     def __init__(self, name, height_cm, age_days):
         self.name = name
@@ -33,7 +21,7 @@ def main():
     ]
 
     garden_plants = []
-    
+
     print("=== Plant Factory Output ===")
 
     for name, height, age in plant_data:
@@ -46,5 +34,7 @@ def main():
     for plant in garden_plants:
         plant.display_info()
     print("=== End of List ===")
+
+
 if __name__ == "__main__":
     main()

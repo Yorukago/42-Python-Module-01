@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_garden_security.py                              :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jzorreta <jzorreta@student.42lisboa.com    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/08 15:54:35 by jzorreta          #+#    #+#              #
-#    Updated: 2025/12/08 15:56:33 by jzorreta         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 class SecurePlant:
     def __init__(self, name, height_cm, age_days):
         self.name = name
@@ -37,11 +25,11 @@ class SecurePlant:
         else:
             self.__age_days = new_age
 
-
     def display_info(self):
         print(f"SecurePlant: {self.name}")
         print(f"Height: {self.__height_cm}cm")
         print(f"Age: {self.__age_days} days")
+
 
 def main():
     plant = SecurePlant("Lavender", 30, 20)
@@ -56,6 +44,7 @@ def main():
     plant.set_age(25)
 
     plant.display_info()
+
 
 if __name__ == "__main__":
     main()
