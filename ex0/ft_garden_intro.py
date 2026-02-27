@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-A simple script to display plant information in the Community Garden.
-"""
-
-
 def main() -> None:
     """ Making a plant with a name, height and age (in days) """
     name: str = "Tulip"

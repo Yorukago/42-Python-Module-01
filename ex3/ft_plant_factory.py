@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 class Plant:
-    """Blueprint for creating plants in the factory."""
+    """Blueprint for creating plants in the factory"""
     def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self.name = name
         self.height_cm = height_cm
         self.age_days = age_days
 
     def display_info(self):
-        """Display formatted plant details."""
+        """Display formatted plant details"""
         print(f"Plant name: {self.name}")
         print(f"Height: {self.height_cm}cm")
         print(f"Age: {self.age_days} days old")
@@ -16,7 +16,7 @@ class Plant:
 
 
 def main() -> None:
-    """The 'Factory' that creates and organizes plants efficiently."""
+    """The 'Factory' that creates and organizes plants efficiently"""
     # Data list to streamline creation
     plant_data = [
         ("Marigold", 18, 12),

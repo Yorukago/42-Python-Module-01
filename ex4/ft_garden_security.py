@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 class SecurePlant:
-    """A plant class that protects its data through encapsulation."""
+    """A plant class that protects its data through encapsulation"""
     def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self.name = name
         self.__height_cm = 0
