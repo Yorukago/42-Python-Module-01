@@ -1,104 +1,114 @@
-class Plant:
-    def __init__(self, name, height_cm, age_days):
-        self.name = name
-        self.height_cm = height_cm
-        self.age_days = age_days
+#!/usr/bin/env python3
 
-    def display_info(self):
+class Plant:
+    """Base class for all garden plants."""
+
+    def __init__(self, name: str, height_cm: int, age_days: int) -> None:
+        """Initialize common plant attributes."""
+        self.name: str = name
+        self.height_cm: int = height_cm
+        self.age_days: int = age_days
+
+    def display_info(self) -> None:
+        """Display basic info."""
         print(f"Plant name: {self.name}")
         print(f"Height: {self.height_cm}cm")
         print(f"Age: {self.age_days} days old")
 
-    def action(self):
+    def action(self) -> None:
+        """Generic action to be overridden by subclasses."""
         pass
 
 
 class Flower(Plant):
-    def __init__(self, name, height_cm, age_days, color):
-        super().__init__(name, height_cm, age_days)
-        self.color = color
+    """Specialized plant with color and blooming behavior."""
 
-    def display_info(self):
-        print(
-            f"{self.name} (Flower): {self.height_cm}cm, "
-            f"{self.age_days} days, {self.color} color"
-        )
+    def __init__(self, name: str, h: int, a: int, color: str) -> None:
+        """Use super() to setup basic attributes then add color."""
+        super().__init__(name, h, a)
+        self.color: str = color
 
-    def bloom(self):
-        print(
-            f"{self.name} is blooming beautifully with "
-            f"{self.color} petals!"
-        )
+    def display_info(self) -> None:
+        """Override display to include color."""
+        print(f"{self.name} (Flower): {self.height_cm}cm, "
+              f"{self.age_days} days, {self.color} color")
 
-    def action(self):
+    def bloom(self) -> None:
+        """Unique flower behavior."""
+        print(f"{self.name} is blooming beautifully with "
+              f"{self.color} petals!")
+
+    def action(self) -> None:
+        """Map action to blooming."""
         self.bloom()
 
 
 class Tree(Plant):
-    def __init__(self, name, height_cm, age_days, trunk_diameter):
-        super().__init__(name, height_cm, age_days)
-        self.trunk_diameter = trunk_diameter
+    """Specialized plant with trunk diameter and shade behavior."""
 
-    def display_info(self):
-        print(
-            f"{self.name} (Tree): {self.height_cm}cm, "
-            f"{self.age_days} days, {self.trunk_diameter}cm diameter"
-        )
+    def __init__(self, name: str, h: int, a: int, trunk_dia: float) -> None:
+        """Setup parent attributes and trunk diameter."""
+        super().__init__(name, h, a)
+        self.trunk_diameter: float = trunk_dia
 
-    def produce_shade(self):
-        shade_area = self.trunk_diameter * 1.50
-        print(
-            f"{self.name} provides about "
-            f"{shade_area:.1f} square meters of shade"
-        )
+    def display_info(self) -> None:
+        """Override display to include trunk size."""
+        print(f"{self.name} (Tree): {self.height_cm}cm, "
+              f"{self.age_days} days, {self.trunk_diameter}cm diameter")
 
-    def action(self):
+    def produce_shade(self) -> None:
+        """Calculate and display shade area."""
+        shade_area: float = self.trunk_diameter * 1.50
+        print(f"{self.name} provides about "
+              f"{shade_area:.1f} square meters of shade")
+
+    def action(self) -> None:
+        """Map action to shade production."""
         self.produce_shade()
 
 
 class Vegetable(Plant):
-    def __init__(
-        self,
-        name,
-        height_cm,
-        age_days,
-        harvest_season,
-        nutricional_value
-    ):
-        super().__init__(name, height_cm, age_days)
-        self.harvest_season = harvest_season
-        self.nutricional_value = nutricional_value
+    """Specialized plant with harvest info and nutrition."""
 
-    def display_info(self):
-        print(
-            f"{self.name} (Vegetable): {self.height_cm}cm, "
-            f"{self.age_days} days, {self.harvest_season} harvest"
-        )
+    def __init__(self, name: str, h: int, a: int, season: str,
+                 nut: str) -> None:
+        """Setup parent attributes and nutritional info."""
+        super().__init__(name, h, a)
+        self.harvest_season: str = season
+        self.nutritional_value: str = nut
 
-    def show_nutrition(self):
-        print(
-            f"{self.name} is rich in {self.nutricional_value} "
-            f"and is harvested in {self.harvest_season}"
-        )
+    def display_info(self) -> None:
+        """Override display to include harvest info."""
+        print(f"{self.name} (Vegetable): {self.height_cm}cm, "
+              f"{self.age_days} days, {self.harvest_season} harvest")
 
-    def action(self):
+    def show_nutrition(self) -> None:
+        """Display nutritional facts."""
+        print(f"{self.name} is rich in {self.nutritional_value} "
+              f"and is harvested in {self.harvest_season}")
+
+    def action(self) -> None:
+        """Map action to nutrition display."""
         self.show_nutrition()
 
 
-def main():
-    print("=== Garden Plant Types ===")
+def main() -> None:
+    """The main garden setup demonstrating polymorphism."""
+    print("=== Community Garden Plant Types ===\n")
 
+    # Creating 2 instances of each as required
     rose = Flower("Rose", 30, 40, "red")
     tulip = Flower("Tulip", 20, 15, "yellow")
 
-    oak = Tree("Oak", 500, 2000, 80)
-    pine = Tree("Pine", 450, 1500, 60)
+    oak = Tree("Oak", 500, 2000, 80.0)
+    pine = Tree("Pine", 450, 1500, 60.0)
 
     carrot = Vegetable("Carrot", 15, 50, "Spring", "vitamin A")
     lettuce = Vegetable("Lettuce", 10, 25, "Summer", "fiber")
 
-    garden = [rose, tulip, oak, pine, carrot, lettuce]
+    garden: list[Plant] = [rose, tulip, oak, pine, carrot, lettuce]
 
+    # Streamlined loop using polymorphism
     for plant in garden:
         plant.display_info()
         plant.action()

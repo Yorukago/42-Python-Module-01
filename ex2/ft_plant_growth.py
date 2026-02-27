@@ -1,31 +1,37 @@
+#!/usr/bin/env python3
+
 class Plant:
-    def __init__(self, name, height_cm, age_days):
+    """ Class now has more things than before... """
+    def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self.name = name
         self.height_cm = height_cm
         self.age_days = age_days
 
-    def grow(self):
+    """ This makes it grow 2cm each time its called """
+    def grow(self) -> None:
         self.height_cm += 2
 
-    def age(self):
+    """ And this makes it one day older each time its called """
+    def age(self) -> None:
         self.age_days += 1
 
-    def get_info(self):
+    """ This was needed for the subject but this sucks ass """
+    def get_info(self) -> None:
         return f"{self.name}: {self.height_cm}cm, {self.age_days} days old"
 
-    def display_info(self):
-        print(f"Plant name: {self.name}")
-        print(f"Height: {self.height_cm}cm")
-        print(f"Age: {self.age_days} days old")
+    """ This is my way to do it lmao, ignore the get_info """
+    def display_info(self) -> None:
+        print(self.get_info())
         print("-" * 20)
 
 
-def main():
-    plant1 = Plant("Spider Lily", 75, 30)
-    plant2 = Plant("Tulip", 25, 2)
-    plant3 = Plant("Sunflower", 300, 95)
-
-    garden_plants = [plant1, plant2, plant3]
+def main() -> None:
+    """ Creates the plants from before, and simulates growth over a week """
+    garden_plants = [
+        Plant("Spider Lily", 75, 30),
+        Plant("Tulip", 25, 2),
+        Plant("Sunflower", 300, 95)
+    ]
 
     print("~ Community Garden Plant Information Board ~\n")
     for plant in garden_plants:
@@ -33,12 +39,12 @@ def main():
 
     print("\nSimulating 7 days of growth...\n")
 
-    day = 1
-    while day < 7:
+    # _ is used because we dont really need the number, we just care
+    # about the repition...
+    for _ in range(7):
         for plant in garden_plants:
             plant.grow()
             plant.age()
-        day += 1
 
     print("~ After 1 Week ~\n")
     for plant in garden_plants:
