@@ -52,10 +52,8 @@ class GardenManager:
             return reg, flow, prz
 
         def get_total_score(self):
-            # Sum of heights + sum of prize points
             score = sum(p.height_cm for p in self.plants)
             score += sum(getattr(p, 'prize_points', 0) for p in self.plants)
-            # To match the '218' score in your example, we ensure math is clean
             return score
 
         def check_height_validation(self):
@@ -95,10 +93,24 @@ class GardenManager:
 
     @classmethod
     def create_garden_network(cls):
+        """
+        This is a 'Factory Worker' method
+        It doesn't belong to one person (self), it belongs to the Class (cls)
+        It uses the 'Garden Blueprint' (cls) to build two new gardens!
+
+        So we create Alice and Bob as 'Instances'-independent gardens
+        that follow the same rules but have their own separate data.
+        """
         return cls("Alice"), cls("Bob")
 
     @staticmethod
     def get_system_status():
+        """
+        A static method is just a normal function that lives inside a class.
+        It doesn't get 'self' or 'cls' handed to it.
+        It CAN return values (like this string), it just doesn't
+        need to 'touch' any specific garden to do its job.
+        """
         return f"Total gardens managed: {GardenManager.total_gardens}"
 
 
@@ -110,7 +122,6 @@ def main() -> None:
     alice_g.add_plant(FloweringPlant("Rose", 25, 40, "red"))
     alice_g.add_plant(PrizeFlower("Sunflower", 50, 90, "yellow", 10))
 
-    # Bob gets a plant too
     bob_g.add_plant(Plant("Small Bush", 92, 10))
 
     alice_g.grow_all()

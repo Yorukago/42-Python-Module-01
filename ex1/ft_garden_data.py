@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 
 class Plant:
-    """ Class to make a plant with a name, a height and age (in days) """
+    """
+    Class to make a plant with a name, a height and age (in days)
+    init, initializer or better known as a Constructor, takes temporary info
+    like: name, height and age...
+    And then saves its on a "permament memory" using 'self.'
+    """
     def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self.name = name
         self.height_cm = height_cm

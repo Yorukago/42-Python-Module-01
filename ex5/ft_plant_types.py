@@ -1,30 +1,32 @@
 #!/usr/bin/env python3
 
 class Plant:
-    """Base class for all garden plants."""
-
+    """
+    We are going to talk about Inheritance now, basically its a tree with a
+    "parent" and its children that "inherit" the characteristics of their
+    parent
+    """
     def __init__(self, name: str, height_cm: int, age_days: int) -> None:
-        """Initialize common plant attributes."""
         self.name: str = name
         self.height_cm: int = height_cm
         self.age_days: int = age_days
 
     def display_info(self) -> None:
-        """Display basic info."""
         print(f"Plant name: {self.name}")
         print(f"Height: {self.height_cm}cm")
         print(f"Age: {self.age_days} days old")
 
     def action(self) -> None:
-        """Generic action to be overridden by subclasses."""
+        # Generic action to be overridden by subclasses
         pass
 
 
 class Flower(Plant):
-    """Specialized plant with color and blooming behavior."""
-
     def __init__(self, name: str, h: int, a: int, color: str) -> None:
-        """Use super() to setup basic attributes then add color."""
+        """
+        super() basically says to inherit certain characterics from their
+        parent + their own things
+        """
         super().__init__(name, h, a)
         self.color: str = color
 
@@ -44,10 +46,7 @@ class Flower(Plant):
 
 
 class Tree(Plant):
-    """Specialized plant with trunk diameter and shade behavior"""
-
     def __init__(self, name: str, h: int, a: int, trunk_dia: float) -> None:
-        """Setup parent attributes and trunk diameter"""
         super().__init__(name, h, a)
         self.trunk_diameter: float = trunk_dia
 
@@ -68,11 +67,8 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
-    """Specialized plant with harvest info and nutrition"""
-
     def __init__(self, name: str, h: int, a: int, season: str,
                  nut: str) -> None:
-        """Setup parent attributes and nutritional info"""
         super().__init__(name, h, a)
         self.harvest_season: str = season
         self.nutritional_value: str = nut
@@ -107,7 +103,6 @@ def main() -> None:
 
     garden: list[Plant] = [rose, tulip, oak, pine, carrot, lettuce]
 
-    # Streamlined loop using polymorphism
     for plant in garden:
         plant.display_info()
         plant.action()

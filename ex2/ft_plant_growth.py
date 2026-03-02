@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 class Plant:
-    """ Class now has more things than before... """
+    """
+    Same as before, we make the Plant class with the arguments needed
+    but now we make it have actions
+    """
     def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self.name = name
         self.height_cm = height_cm
@@ -39,8 +42,10 @@ def main() -> None:
 
     print("\nSimulating 7 days of growth...\n")
 
-    # _ is used because we dont really need the number, we just care
-    # about the repition...
+    """
+    '_' is used because we dont really need the number, we just care
+    about the repition...
+    """
     for _ in range(7):
         for plant in garden_plants:
             plant.grow()
