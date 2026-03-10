@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
 class Plant:
+    """
+    Mostly the same from the other exercises, this is the inheritance part
+    """
     def __init__(self, name: str, height_cm: int, age_days: int) -> None:
         self.name = name
         self.height_cm = height_cm
@@ -39,9 +42,16 @@ class PrizeFlower(FloweringPlant):
 
 
 class GardenManager:
+    """
+    And this is the garden manager part that i hate
+    """
     total_gardens = 0
 
     class GardenStats:
+        """
+        This helper class (required by the damn subject) is used to calculate
+        the score of all the plants, and checks if the height is valid
+        """
         def __init__(self, plants: list) -> None:
             self.plants = plants
 
@@ -59,6 +69,11 @@ class GardenManager:
         def check_height_validation(self):
             return all(p.height_cm > 0 for p in self.plants)
 
+    """
+    And this is to initialize the "gardener", add plants, make them grow
+    and then showing a small report like the flowers each gardener has,
+    how much they grew, their total score for each plant...
+    """
     def __init__(self, owner: str) -> None:
         self.owner = owner
         self.plants = []

@@ -13,5 +13,12 @@ def main() -> None:
     print("~ End of List ~\n")
 
 
+"""
+This..thing below serves as the program's entry point
+Deleting this makes it still work
+This is more for...various files and imports, since python reads
+every file from top to bottom, this is just a cute lil flag that says
+'hey! read me first!!' to avoid messes down the line
+"""
 if __name__ == "__main__":
     main()

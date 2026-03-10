@@ -34,11 +34,11 @@ def main() -> None:
     3. It turns that raw data into a real 'Plant' Object
     4. It saves the object into our 'garden_plants' storage list
     """
-    for i in range(len(plant_data)):
-        name, height, age = plant_data[i]
-        new_plant = Plant(name, height, age)
-        garden_plants.append(new_plant)
-        print(f"Created: {name} ({height}cm, {age} days)")
+    for i in range(len(plant_data)):  # step 1
+        name, height, age = plant_data[i]  # step 2
+        new_plant = Plant(name, height, age)  # step 3
+        garden_plants.append(new_plant)  # step 4
+        print(f"Created: {name} ({height}cm, {age} days)")  # prints the output
 
     print(f"\nTotal plants created: {len(garden_plants)}\n")
 

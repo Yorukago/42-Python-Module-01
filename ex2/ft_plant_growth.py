@@ -10,9 +10,9 @@ class Plant:
         self.height_cm = height_cm
         self.age_days = age_days
 
-    """ This makes it grow 2cm each time its called """
+    """ This makes it grow 1cm each time its called """
     def grow(self) -> None:
-        self.height_cm += 2
+        self.height_cm += 1
 
     """ And this makes it one day older each time its called """
     def age(self) -> None:
